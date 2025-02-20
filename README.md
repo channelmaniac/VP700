@@ -37,4 +37,8 @@ Lower Memory Map:  (NOTE: the upper half of memory exhibits the same mirroring b
 
 This new card uses the 4516 to also decode the address for the EEPROM / EPROM used to hold the Tiny BASIC code to have it appear in memory from 0000-0FFF so the only additional chip needed is the 74HC573 to latch the upper 8 address lines. The card calls for a single 28C256 but the upper address lines are grounded. You are only using the lower 4K. If a 28C256 can't be found, a simple 27C64 will work just fine.
 
+Thanks to Walter Miraglia for the page scans of the RCA Tiny BASIC manual. I've put them together in a single PDF file and put them here to make things easy.
+
+The Tiny BASIC ROM code is as simple as installing the EMMA 02 emulator and grabbing the VP700_Tiny_BASIC.bin file from it to program into your own IC.
+
 PCBs are on order from JLCPCB. Once verified the files will be placed in this repository.
