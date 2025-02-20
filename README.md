@@ -12,16 +12,27 @@ There are some difficulties in designing for this system. The address bus is mul
 The Tiny BASIC card represented some challenges as the Mask ROMs from RCA not only latch the address information internally, they also have internal address decoding so no external ICs for decoding addresses were necessary on that card. The 4516 CMOS chip is a 4 to 16 decoder and while it could be used to decode the addresses for the ROMs, it wasn't. It was used to decode the RAM address, disable the RAM from 0000-0FFF, and enable only the bank of RAM from 1000-1FFF using the MINH line. This is because the Tiny BASIC code sits at 0000-0FFF in memory and would otherwise conflict with the RAM. The diode on the MINH signal is because RCA specified a diode to be used on that signal line in documentation. To further the difficulty in understanding how this card works, the upper address lines are not used in order for inputs on the 4516. Instead of mapping the inputs D(A15), C(A14), B(A13), and A(A12) being used, RCA mapped them as D(A15), C(A13), B(A12), and A(A14). This means you must build a table to map the upper address lines to understand the outputs properly.
 
 Lower Memory Map:  (NOTE: the upper half of memory exhibits the same mirroring behavior with the Monitor ROM.)
+
 0000-03FF - Bank 0 RAM (2x 2114 RAM chips)
+
 0400-07FF - Bank 1 RAM (2x 2114 RAM chips)
+
 0800-0BFF - Bank 2 RAM (2x 2114 RAM chips)
+
 0C00-0FFF - Bank 3 RAM (2x 2114 RAM chips)
+
 1000-1FFF - Mirror of bank 0-4
+
 2000-2FFF - Mirror of bank 0-4
+
 3000-3FFF - Mirror of bank 0-4
+
 4000-4FFF - Mirror of bank 0-4
+
 5000-5FFF - Mirror of bank 0-4
+
 6000-6FFF - Mirror of bank 0-4
+
 7000-7FFF - Mirror of bank 0-4
 
 This new card uses the 4516 to also decode the address for the EEPROM / EPROM used to hold the Tiny BASIC code to have it appear in memory from 0000-0FFF so the only additional chip needed is the 74HC573 to latch the upper 8 address lines. The card calls for a single 28C256 but the upper address lines are grounded. You are only using the lower 4K. If a 28C256 can't be found, a simple 27C64 will work just fine.
