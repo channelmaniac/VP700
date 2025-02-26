@@ -13,8 +13,9 @@ Parts needed:
   OR 28C64 8K x 8 EEPROM
   OR 27C64 8K x 8 EPROM
   OR 2764 8K x 8 EPROM
-1x 18-22pf ceramic (disk or MLCC) capacitor
-1x 100nf / .1uf / 104 ceramic (disk or MLCC) capacitor
+1x 1N914 / 1N4148 Diode
+1x 18-22pf Ceramic (disk or MLCC) capacitor
+1x 100nf / .1uf / 104 Ceramic (disk or MLCC) capacitor
 1x 100uf Electrolytic capacitor
 1x 24-pin .6" wide dual wipe socket
 1x 24-pin .6" wide dual wipe socket
