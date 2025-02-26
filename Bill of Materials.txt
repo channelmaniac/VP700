@@ -1,0 +1,34 @@
+Bill of Materials:
+
+This will be short as the card is not complicated! Part numbers not included as I had all the
+parts in my stash except for the HC573 which came from Mouser. I have an affinity to use 
+Mouser for my parts needs as I live a 45 minute drive from them and get parts next day if I 
+order early enough. 
+
+Parts needed: 
+
+1x MC14515 or equivalent 4-bit transpare latch/4-to-16 line decoder
+1x 74HC573 Octal D-type latch with 3-state outputs
+1x 28C256 32K x 8 EEPROM 
+  OR 28C64 8K x 8 EEPROM
+  OR 27C64 8K x 8 EPROM
+  OR 2764 8K x 8 EPROM
+1x 18-22pf ceramic (disk or MLCC) capacitor
+1x 100nf / .1uf / 104 ceramic (disk or MLCC) capacitor
+1x 100uf Electrolytic capacitor
+1x 24-pin .6" wide dual wipe socket
+1x 24-pin .6" wide dual wipe socket
+1x 20-pin dual wipe socket
+
+And 1 of the PCBs from your favorite PCB manufacturer. I used JLCPCB.
+
+The value of the timing bodge capacitor has been tested at 18pf with a ceramic 1802 CPU installed 
+on the VIP and at 22pf with a plastic CPU installed on the VIP. The PCB was designed to use a 
+28C256 with the upper address lines grounded. Smaller sized 28 pin devices will work and the 
+28C64 and 2764 chips have been successfully tested.
+
+At the slow CPU speeds of the 1802 in the VIP, slower cycle time EPROMs (300ns) have been tested
+and should work fine. The 14515 used was from Motorola and the HC573 was from Texas Instruments. 
+This should not matter and other manufacturer parts should work fine. Other families (LS, ALS, F,
+HCT, etc.) of the HC573 have not been tested. The VIP works at CMOS logic levels but the TTL 
+level outputs of the EEPROM/EPROM work fine.
