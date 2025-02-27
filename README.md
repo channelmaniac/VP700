@@ -21,19 +21,19 @@ Lower Memory Map:  (NOTE: the upper half of memory exhibits the same mirroring b
 
 0C00-0FFF - Bank 3 RAM (2x 2114 RAM chips)
 
-1000-1FFF - Mirror of bank 0-4
+1000-1FFF - Mirror of bank 0-3
 
-2000-2FFF - Mirror of bank 0-4
+2000-2FFF - Mirror of bank 0-3
 
-3000-3FFF - Mirror of bank 0-4
+3000-3FFF - Mirror of bank 0-3
 
-4000-4FFF - Mirror of bank 0-4
+4000-4FFF - Mirror of bank 0-3
 
-5000-5FFF - Mirror of bank 0-4
+5000-5FFF - Mirror of bank 0-3
 
-6000-6FFF - Mirror of bank 0-4
+6000-6FFF - Mirror of bank 0-3
 
-7000-7FFF - Mirror of bank 0-4
+7000-7FFF - Mirror of bank 0-3
 
 This new card uses the 4516 to also decode the address for the EEPROM / EPROM used to hold the Tiny BASIC code to have it appear in memory from 0000-0FFF so the only additional chip needed is the 74HC573 to latch the upper 8 address lines. The card calls for a single 28C256 but the upper address lines are grounded. You are only using the lower 4K. If a 28C256 can't be found, a simple 27C64 will work just fine.
 
