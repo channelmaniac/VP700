@@ -9,6 +9,7 @@ Parts needed:
 
 1x MC14515 or equivalent 4-bit transpare latch/4-to-16 line decoder
 1x 74HC573 Octal D-type latch with 3-state outputs
+  OR 74HCT573 Ocal D-type latch with 3-state outputs
 1x 28C256 32K x 8 EEPROM 
   OR 28C64 8K x 8 EEPROM
   OR 27C64 8K x 8 EPROM
@@ -22,6 +23,11 @@ Parts needed:
 1x 20-pin dual wipe socket
 
 And 1 of the PCBs from your favorite PCB manufacturer. I used JLCPCB.
+
+Either the 74HC or HCT family latch will work for this. The important part is that either act as
+CMOS inputs with low input current orf 1uA max to keep from being too much of a load to the VIP
+which had 1 TTL load listed in the documentation. The outputs for either chip will drive up to 
+"15 LSTTL loads" but are only driving the upper address lines to the EEPROM or EPROM being used.
 
 The value of the timing bodge capacitor has been tested at 18pf with a ceramic 1802 CPU installed 
 on the VIP and at 22pf with a plastic CPU installed on the VIP. The PCB was designed to use a 
