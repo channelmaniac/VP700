@@ -10,6 +10,8 @@ Parts needed:
 1x MC14515 or equivalent 4-bit transpare latch/4-to-16 line decoder
 1x 74HC573 Octal D-type latch with 3-state outputs
   OR 74HCT573 Ocal D-type latch with 3-state outputs
+  OR 74HC574 Octal Edge-Triggered D-Type Flip-Flops with 3-state outputs
+  OR 74HCT574 Octal Edge-Triggered D-Type Flip-Flops with 3-state outputs
 1x 28C256 32K x 8 EEPROM 
   OR 28C64 8K x 8 EEPROM
   OR 27C64 8K x 8 EPROM
