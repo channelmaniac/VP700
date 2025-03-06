@@ -39,5 +39,6 @@ on the VIP and at 22pf with a plastic CPU installed on the VIP. The PCB was desi
 At the slow CPU speeds of the 1802 in the VIP, slower cycle time EPROMs (300ns) have been tested
 and should work fine. The 14515 used was from Motorola and the HC573 was from Texas Instruments. 
 This should not matter and other manufacturer parts should work fine. Other families (LS, ALS, F,
-HCT, etc.) of the HC573 have not been tested. The VIP works at CMOS logic levels but the TTL 
-level outputs of the EEPROM/EPROM work fine.
+H, S, etc.) of the HC573 have not been tested and should not be used as the VIP documentation 
+specifies using CMOS. The documemtation states to use CMOS buffer chips if using TTL on the
+expansion interface.
