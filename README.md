@@ -5,7 +5,7 @@ This was a project by the late Ed Keefe. He had dumped the VP700 Tiny BASIC card
 
 I was given a copy of the gerbers and had some PCBs made but could not get his PCB working. The problem boiled down to timing, address decoding, and which signals got used where. I figured out one part of it but was stuck getting it to boot immediately to the card after a reset of the CPU. Walter Miraglia was very helpful in working with me on this he engaged Josh Bensadon who figured out the issues, the proper connections for each part of the signalling, and that a tiny capacitor was needed to stretch a pulse on the /MRD (Memory Read) line.
 
-Based on Josh's changes, I laid out a new card using Ed's logo like his had plus his name, which, additionally, I'd like to extend many thanks to Con Skordis for help with the 44 pin edge connector in KiCAD. With his permission I have added the edge connector files for KiCAD into the KiCAD directory here.
+Based on Josh's changes, I laid out a new card using Ed's logo like his had plus his name, which, additionally, I'd like to extend many thanks to Con Skordis for help with the 44 pin edge connector in KiCAD. With his permission I have added the edge connector files for KiCAD into the KiCAD Template directory here.
 
 There are some difficulties in designing for this system. The address bus is multiplexed with the TPA signal used to define when the lower address bus information is available then when the upper address bus information is. The 8000 signal is a flipped version of the /8000 used to access the monitor ROM. When the 8000 signal is low, the lower half of memory is addressed. The lower half of memory is RAM and is incompletely decoded for access, resulting in mirrors at every 4K for the lower half of memory. The RAM can be disabled by asserting the MINH signal on the expansion bus, taking it to logic High. The Tiny BASIC card makes use of this.
 
@@ -35,13 +35,14 @@ Lower Memory Map:  (NOTE: the upper half of memory exhibits the same mirroring b
 
 7000-7FFF - Mirror of bank 0-3
 
-This new card uses the 4516 to also decode the address for the EEPROM / EPROM used to hold the Tiny BASIC code to have it appear in memory from 0000-0FFF so the only additional chip needed is the 74HC573 to latch the upper 8 address lines. The card calls for a single 28C256 but the upper address lines are grounded. You are only using the lower 4K. If a 28C256 can't be found, a simple 27C64 will work just fine.
+This new card uses the 4516 to also decode the address for the EEPROM / EPROM used to hold the Tiny BASIC code to have it appear in memory from 0000-0FFF so the only additional chip needed is the 74HC573 to latch the
+upper 8 address lines. The card calls for a single 28C256 but the upper address lines are grounded. You are only using the lower 4K. If a 28C256 can't be found, a simple 27C64 will work just fine.
 
-A 74HCT573 latch will also work if you have those on hand instead of a 74HC573. While 74LS/S/AS/etc. may work, those are NOT recommended as they take too much current to drive the inputs. RCA calls out that you should
-use CMOS buffers to drive TTL loads on the expansion interface and this card does not use those.
+A 74HCT573 Octal latch will also work if you have those on hand instead of a 74HC573. Additionally a 74HC574 or 74HCT574 octal flip-flop will also work if a 573 is hard to source. While 74LS/S/AS/etc. may work, those
+are NOT recommended as they take too much current to drive the inputs. RCA calls out that you should use CMOS buffers to drive TTL loads on the expansion interface and this card does not use those.
 
 Thanks to Walter Miraglia for the page scans of the RCA Tiny BASIC manual. I've put them together in a single PDF file and put them here to make things easy.
 
 The Tiny BASIC ROM code is as simple as installing the EMMA 02 emulator and grabbing the VP700_Tiny_BASIC.bin file from it to program into your own IC.
 
-PCBs are on order from JLCPCB. Once verified the files will be placed in this repository.
+The PCBs have been ordered through JLCPCB and verified by me before the files were uploaded to this repsitory.
