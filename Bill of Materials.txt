@@ -24,6 +24,9 @@ Parts needed:
 1x 24-pin .6" wide dual wipe socket
 1x 20-pin dual wipe socket
 
+To get the code for the EPROM/EEPROM, install the EMMA 02 emulator and pull the VP700_Tiny_BASIC.bin
+file from the program's files.
+
 And 1 of the PCBs from your favorite PCB manufacturer. I used JLCPCB.
 
 Either the 74HC or HCT family latch will work for this. The important part is that either act as
